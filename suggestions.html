@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Suggestions - Lung Cancer Info</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            background-color: #fff;
+            padding: 30px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+        section {
+            margin-top: 30px;
+        }
+        h3 {
+            color: #007BFF;
+        }
+        ul {
+            list-style-type: disc;
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+        a {
+            display: inline-block;
+            margin-top: 30px;
+            color: #007BFF;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        a:hover {
+            color: #0056b3;
+        }
+        iframe {
+            width: 100%;
+            height: 315px;
+            border: none;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Expert Suggestions: Lung Cancer Awareness</h2>
+
+        <section>
+            <h3>Treatments</h3>
+            <ul>
+                <li><strong>Surgery:</strong> Removal of tumors and affected lung tissues.</li>
+                <li><strong>Radiation Therapy:</strong> High-energy rays to kill cancer cells.</li>
+                <li><strong>Chemotherapy:</strong> Drug treatment to shrink or eliminate cancer.</li>
+                <li><strong>Targeted Therapy:</strong> Attacks specific abnormalities in cancer cells.</li>
+                <li><strong>Immunotherapy:</strong> Boosts the body's immune system to fight cancer.</li>
+            </ul>
+            <iframe src="https://www.youtube.com/embed/hzBYN9LezYQ" title="Lung Cancer Treatment by Experts"></iframe>
+        </section>
+
+        <section>
+            <h3>How to Avoid Lung Cancer</h3>
+            <ul>
+                <li>Avoid smoking (both active and passive).</li>
+                <li>Maintain indoor air quality, avoid radon and pollutants.</li>
+                <li>Wear masks if working in chemical or construction zones.</li>
+                <li>Eat a diet rich in fruits, vegetables, and antioxidants.</li>
+                <li>Exercise regularly and stay physically active.</li>
+            </ul>
+            <iframe src="https://www.youtube.com/embed/ZvTj4-Eys9A" title="Lung Cancer Prevention Tips"></iframe>
+        </section>
+
+        <section>
+            <h3>Major Causes of Lung Cancer</h3>
+            <ul>
+                <li>Smoking (primary cause — up to 85%).</li>
+                <li>Exposure to asbestos, radon gas, and industrial pollutants.</li>
+                <li>Family history of lung cancer.</li>
+                <li>Prolonged exposure to air pollution.</li>
+                <li>Radiation therapy to the chest (e.g., for other cancers).</li>
+            </ul>
+            <iframe src="https://www.youtube.com/embed/hM-xFRxk0i0" title="Causes of Lung Cancer - Doctor Explanation"></iframe>
+        </section>
+
+        <a href="/">← Back to Home</a>
+    </div>
+</body>
+</html>

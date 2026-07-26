@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Nearby Hospitals</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        #map {
+            height: 500px;
+            width: 100%;
+            margin-top: 20px;
+            border-radius: 10px;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        .back-btn {
+            margin: 20px;
+            display: block;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h2>Nearby Hospitals</h2>
+
+    <div id="map"></div>
+
+    <a href="/" class="back-btn">
+        <button>Back to Home</button>
+    </a>
+
+    <script>
+        let map;
+
+        function initMap() {
+            // Try HTML5 geolocation.
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(function(position) {
+                    const userLocation = {
+                        lat: position.coords.latitude,
+                        lng: position.coords.longitude
+                    };
+
+                    map = new google.maps.Map(document.getElementById('map'), {
+                        center: userLocation,
+                        zoom: 14
+                    });
+
+                    // User's marker
+                    new google.maps.Marker({
+                        position: userLocation,
+                        map: map,
+                        title: "You are here"
+                    });
+
+                    // Example hospitals (can be updated or fetched via backend/Places API)
+                    const hospitals = [
+                        { lat: userLocation.lat + 0.005, lng: userLocation.lng + 0.005, name: "City Hospital" },
+                        { lat: userLocation.lat - 0.004, lng: userLocation.lng + 0.003, name: "National Health Clinic" },
+                        { lat: userLocation.lat + 0.002, lng: userLocation.lng - 0.006, name: "General Hospital" }
+                    ];
+
+                    hospitals.forEach(hospital => {
+                        new google.maps.Marker({
+                            position: { lat: hospital.lat, lng: hospital.lng },
+                            map: map,
+                            title: hospital.name,
+                            icon: "https://maps.google.com/mapfiles/ms/icons/hospitals.png"
+                        });
+                    });
+
+                }, function() {
+                    handleLocationError(true);
+                });
+            } else {
+                // Browser doesn't support Geolocation
+                handleLocationError(false);
+            }
+        }
+
+        function handleLocationError(browserHasGeolocation) {
+            alert(browserHasGeolocation
+                ? 'Error: Geolocation service failed.'
+                : 'Error: Your browser doesn\'t support geolocation.');
+        }
+    </script>
+
+    <!-- ✅ Replace YOUR_API_KEY with a valid Google Maps JavaScript API key -->
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC20p0yHiYdufa-F7I9_hfBuL1LlZ_AghM&callback=initMap">
+    </script>
+</body>
+</html>
